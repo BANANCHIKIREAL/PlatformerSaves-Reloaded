@@ -1,3 +1,12 @@
+## v1.1.3 — Reloaded by BANANCHIKIREAL
+
+* Reloaded version — ported and maintained by BANANCHIKIREAL, original mod by 0x5abe
+* Added support for Geometry Dash 2.2081 and Geode 5.7.1
+* Fixed compatibility with the new PersistenceAPI v1.2.0
+* Fixed checkpoint saving not triggering correctly in GD 2.2081
+* Removed dependency on geode.custom-keybinds for broader compatibility
+* Updated mod.json format for Geode 5.x
+
 ## v1.1.1
 
 * Fixed a bug that caused incorrect song to play when loading a save
