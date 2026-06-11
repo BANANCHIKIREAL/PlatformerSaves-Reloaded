@@ -62,6 +62,7 @@ class $modify(PSPlayLayer, PlayLayer) {
 public:
     struct Fields {
         bool m_onQuitCalled = false;
+        bool m_isRegisteringCheckpoints = false;
         bool m_signalForAsyncLoad = false;
         bool m_triedPlacingCheckpoint = false;
         bool m_inPostUpdate = false;

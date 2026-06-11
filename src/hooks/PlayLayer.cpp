@@ -151,7 +151,7 @@ void PSPlayLayer::postUpdate(float i_unkFloat) {
 CheckpointObject* PSPlayLayer::markCheckpoint() {
     PSCheckpointObject* l_checkpointObject = static_cast<PSCheckpointObject*>(PlayLayer::markCheckpoint());
 
-    if (l_checkpointObject && savesEnabled() && !m_isPracticeMode && m_activatedCheckpoint != nullptr) {
+    if (l_checkpointObject && savesEnabled() && !m_isPracticeMode && m_activatedCheckpoint != nullptr && !m_fields->m_isRegisteringCheckpoints) {
         l_checkpointObject->m_fields->m_timePlayed = m_timePlayed;
         l_checkpointObject->m_fields->m_timestamp = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
         m_fields->m_normalModeCheckpoints->addObject(l_checkpointObject);
@@ -228,9 +228,11 @@ void PSPlayLayer::registerCheckpointsAndActivatedCheckpoints() {
         l_checkpoint->m_physicalCheckpointObject->activateObject();
         m_timePlayed = l_checkpoint->m_fields->m_timePlayed;
     }
+    m_fields->m_isRegisteringCheckpoints = true;
     for (int i = 0; i < m_fields->m_activatedCheckpoints.size(); i++) {
         if (m_fields->m_activatedCheckpoints[i].m_reference != nullptr) m_fields->m_activatedCheckpoints[i].m_reference->triggerActivated(0.0f);
     }
+    m_fields->m_isRegisteringCheckpoints = false;
 }
 
 std::string PSPlayLayer::getSaveFilePath(int i_slot, bool i_checkExists) {

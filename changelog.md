@@ -1,3 +1,7 @@
+## v1.1.3-beta.2
+
+* Fixed camera snapping to a stale camera-trigger position when loading a save in GD 2.2081
+
 ## v1.1.3 — Reloaded by BANANCHIKIREAL
 
 * Reloaded version — ported and maintained by BANANCHIKIREAL, original mod by 0x5abe
